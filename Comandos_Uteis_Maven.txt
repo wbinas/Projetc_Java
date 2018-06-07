@@ -1,0 +1,103 @@
+#Comandos úteis do Maven
+
+Criação de Projeto
+desktop java (jar)
+mvn archetype:generate \
+  -DarchetypeGroupId=org.apache.maven.archetypes \
+  -DarchetypeArtifactId=maven-archetype-quickstart \
+  -Dversion=1.0-SNAPSHOT \
+  -DgroupId=com.erkobridee.exemplo.mvn \
+  -DartifactId=ExemploMavenDesktop
+preparar o projeto para o eclipse
+
+mvn eclipse:eclipse 
+web java
+mvn archetype:generate \
+    -DarchetypeGroupId=org.apache.maven.archetypes \
+    -DarchetypeArtifactId=maven-archetype-webapp \
+    -Dversion=1.0-SNAPSHOT \
+    -DgroupId=com.erkobridee.exemplo.mvn \
+    -DartifactId=ExemploMavenWeb
+preparar o projeto para o eclipse
+
+mvn eclipse:eclipse -Dwtpversion=2.0
+Comandos para utilizar em projeto
+mostra a arvore de dependencies(.jar)
+
+mvn depedency:tree 
+copia os jar(dependencies) para pasta target/dependency [ evita eventuais problemas de ambiente ]
+
+mvn dependency:copy-dependencies
+compile o projeto
+
+mvn compile
+executa os testes
+
+mvn test 
+gerar os .jars , muito usado em projetos ear
+
+mvn package 
+limpa todas as dependencies(.jars)
+
+mvn clean 
+procura todos os comandos que vc deu para o maven
+
+history | grep mvn 
+boa prática adotada para gerar o pacote de deploy do projeto
+
+mvn clean install
+Links úteis
+Introduction to the Build Lifecycle
+
+maven em 5 minutos
+
+iniciando com maven
+
+Introduction to Archetypes
+
+Archetypes List
+
+repositório do Maven
+
+FLEX MOJOS
+Flex : Creates a simple SWC project
+
+mvn \
+    archetype:generate \
+    -DarchetypeRepository=http://repository.sonatype.org/content/groups/flexgroup/ \
+    -DarchetypeGroupId=org.sonatype.flexmojos \
+    -DarchetypeArtifactId=flexmojos-archetypes-library \
+    -DarchetypeVersion=3.6.1 \
+    -Dversion=1.0-SNAPSHOT \
+    -DgroupId=com.erkobridee.exemplo.mvn \
+    -DartifactId=ExemploMavenFlexLib
+Flex : Creates a simple SWF project
+
+mvn \
+    archetype:generate \
+    -DarchetypeRepository=http://repository.sonatype.org/content/groups/flexgroup/ \
+    -DarchetypeGroupId=org.sonatype.flexmojos \
+    -DarchetypeArtifactId=flexmojos-archetypes-application \
+    -DarchetypeVersion=3.6.1 \
+    -Dversion=1.0-SNAPSHOT \
+    -DgroupId=com.erkobridee.exemplo.mvn \
+    -DartifactId=ExemploMavenFlexApp
+Flex : Creates a modular project containing one SWC, one SWF and one WAR
+
+mvn \
+    archetype:generate \
+    -DarchetypeRepository=http://repository.sonatype.org/content/groups/flexgroup/ \
+    -DarchetypeGroupId=org.sonatype.flexmojos \
+    -DarchetypeArtifactId=flexmojos-archetypes-modular-webapp \
+    -DarchetypeVersion=3.6.1 \
+    -Dversion=1.0-SNAPSHOT \
+    -DgroupId=com.erkobridee.exemplo.mvn \
+    -DartifactId=ExemploMavenFlexModular
+comandos úteis
+
+mvn clean install -DskipTests=true
+
+mvn flexmojos:flexbuilder
+Flexmojos - Available archetypes
+
+Compiling flex with maven 2
